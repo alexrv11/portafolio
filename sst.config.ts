@@ -1,14 +1,14 @@
 import { SSTConfig } from "sst";
-import { ExampleStack } from "./stacks/web-app";
+import { WebPageStack } from "./stacks/web-app";
 
 export default {
   config(_input) {
     return {
-      name: "portafolio",
+      name: "personal-website",
       region: "us-east-1",
     };
   },
   stacks(app) {
-    app.stack(ExampleStack);
+    app.stack(WebPageStack);
   }
 } satisfies SSTConfig;
