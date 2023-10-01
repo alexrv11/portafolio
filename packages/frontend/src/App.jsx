@@ -3,19 +3,18 @@ import { GithubIcon } from "./icons/github";
 import { LinkedInIcon } from "./icons/linkein";
 import { PdfIcon } from "./icons/pdf";
 import { ThemeButton } from "./components/ThemeButton";
+import { SkillLabel } from "./components/SkillLabel";
 
 function App() {
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(true);
   const onHandlerChangeTheme = () => {
-    console.log("test click change theme")
-    setIsDark((value) => !value)
-  }
+    setIsDark((value) => !value);
+  };
 
   return (
-    <div className={ isDark ? "dark": ""}>
-
-      <div className=" bg-white dark:bg-violet-950 h-full w-full flex justify-center  text-gray-800 dark:text-blue-100">
-      <ThemeButton onClick={onHandlerChangeTheme}/>
+    <div className={isDark ? "dark" : ""}>
+      <div className=" bg-white dark:bg-violet-950 h-full w-full flex justify-center  text-gray-800 dark:text-violet-100">
+        <ThemeButton onClick={onHandlerChangeTheme} />
         <div className="flex flex-col justify-center items-center">
           <div>
             <span className="text-5xl tracking-widest font-semibold">
@@ -28,32 +27,16 @@ function App() {
             </h2>
           </div>
           <div className="flex mt-4 justify-around">
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Golang
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Typescript
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              AWS
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Reactjs
-            </span>
+            <SkillLabel text="Golang" />
+            <SkillLabel text="Typescript" />
+            <SkillLabel text="AWS" />
+            <SkillLabel text="Reactjs" />
           </div>
           <div className="flex mt-1 justify-around">
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Docker
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Serverless AWS
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Nodejs
-            </span>
-            <span className="inline-flex m-1 items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 ring-1 ring-inset ring-gray-500/10">
-              Nextjs
-            </span>
+            <SkillLabel text="Docker" />
+            <SkillLabel text="Serverless AWS" />
+            <SkillLabel text="Nodejs" />
+            <SkillLabel text="Nextjs" />
           </div>
           <div className="flex flex-row mt-8">
             <a
