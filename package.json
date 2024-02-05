@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "sst dev",
+    "dev": "npx sst dev",
     "build": "sst build",
     "deploy": "npx sst deploy --stage prod",
     "remove": "sst remove",

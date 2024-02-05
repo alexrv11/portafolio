@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { GithubIcon } from "./icons/github";
 import { LinkedInIcon } from "./icons/linkein";
 import { PdfIcon } from "./icons/pdf";
@@ -13,13 +14,29 @@ function App() {
 
   return (
     <div className={isDark ? "dark" : ""}>
-      <div className=" bg-white dark:bg-violet-950 h-full w-full flex justify-center  text-gray-800 dark:text-violet-100">
+      <div className=" bg-white dark:bg-slate-950 h-full w-full flex justify-center  text-gray-800 dark:text-violet-100 transition ease-in-out duration-1000">
         <ThemeButton onClick={onHandlerChangeTheme} />
         <div className="flex flex-col justify-center items-center">
-          <div>
-            <span className="text-5xl tracking-widest font-semibold">
-              Alex Ventura
-            </span>
+          <div className="flex flex-row">
+            <motion.div
+              initial={{ opacity: 0.1, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5 }}
+              className="mr-4"
+            >
+              <span className="text-5xl tracking-widest font-semibold">
+                Alex 
+              </span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2.0 }}
+            >
+              <span className="text-5xl tracking-widest font-semibold">
+                Ventura
+              </span>
+            </motion.div>
           </div>
           <div>
             <h2 className="text-xl tracking-widest font-semibold text-gray-800 dark:text-slate-200 mt-6">
@@ -27,7 +44,7 @@ function App() {
             </h2>
           </div>
           <div className="flex mt-4 justify-around">
-            <SkillLabel text="Golang" />
+            <SkillLabel text="Go" />
             <SkillLabel text="Typescript" />
             <SkillLabel text="AWS" />
             <SkillLabel text="Reactjs" />
