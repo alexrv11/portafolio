@@ -22,8 +22,7 @@ export default function Home() {
     };
   
     return (
-      <div className="h-screen w-screen overflow-hidden">
-      <div className={isDark ? "dark" : ""}>
+      <div className={isDark ? "dark h-full w-full" : "h-full w-full"}>
         <div className=" bg-white dark:bg-slate-950 h-full w-full flex justify-center  text-gray-800 dark:text-violet-100 transition ease-in-out duration-1000">
           <ThemeButton onClick={onHandlerChangeTheme} />
           <div className="flex flex-col justify-center items-center">
@@ -96,7 +95,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
       </div>
     );
 }
