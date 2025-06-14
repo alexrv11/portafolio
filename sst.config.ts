@@ -1,14 +1,20 @@
-import { SSTConfig } from "sst";
-import { WebPageStack } from "./stacks/web-app";
+/// <reference path="./.sst/platform/config.d.ts" />
 
-export default {
-  config(_input) {
+export default $config({
+  app(input) {
     return {
-      name: "personal-website",
-      region: "us-east-1",
+      name: "portafolio-ventulab",
+      removal: input?.stage === "production" ? "retain" : "remove",
+      protect: ["production"].includes(input?.stage),
+      home: "aws",
     };
   },
-  stacks(app) {
-    app.stack(WebPageStack);
-  }
-} satisfies SSTConfig;
+  async run() {
+    new sst.aws.React("portafolio-ventulab", {
+      domain: {
+        name: "alex.ventulab.com",
+        redirects: ["www.alex.ventulab.com"],
+      },
+    });
+  },
+});

@@ -1,8 +1,10 @@
-node_modules
-
 .DS_Store
+/node_modules/
 
-.sst/
+# React Router
+/.react-router/
+/build/
 
-coverage
-
+# sst
+.sst
+node_modules

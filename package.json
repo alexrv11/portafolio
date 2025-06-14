@@ -1,24 +1,31 @@
 {
-  "name": "react-app",
-  "version": "0.0.0",
+  "name": "aws-react-router",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx sst dev",
-    "build": "sst build",
-    "deploy": "npx sst deploy --stage prod",
-    "remove": "sst remove",
-    "console": "sst console",
-    "typecheck": "tsc --noEmit"
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@react-router/node": "^7.5.3",
+    "@react-router/serve": "^7.5.3",
+    "isbot": "^5.1.27",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.5.3",
+    "sst": "3.17.5"
   },
   "devDependencies": {
-    "sst": "^2.25.1",
-    "aws-cdk-lib": "2.95.1",
-    "constructs": "10.2.69",
-    "typescript": "^5.2.2",
-    "@tsconfig/node18": "^18.2.2"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+    "@react-router/dev": "^7.5.3",
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/node": "^20",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
 }
