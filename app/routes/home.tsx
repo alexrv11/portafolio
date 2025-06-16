@@ -25,11 +25,26 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   const [title, setTitle] = useState("");
+  const [shortTitle, setShortTitle] = useState("");
+  const shortTitleLabel = "Sr. Software Engineer";
   const fullText = "Senior Software Engineer";
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       setTitle((prev) => fullText.slice(0, index + 1));
+
+      index++;
+      if (index === fullText.length) {
+        clearInterval(interval);
+      }
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setShortTitle((prev) => shortTitleLabel.slice(0, index + 1));
+
       index++;
       if (index === fullText.length) {
         clearInterval(interval);
@@ -49,24 +64,25 @@ export default function Home() {
               stiffness: 300,
               damping: 20,
             }}
-            className="text-8xl font-bold"
+            className="font-bold md:text-8xl md:mt-2 mt-20 text-4xl" // Added responsive text size adjustment
           >
             Alex Ventura
           </motion.div>
         </div>
         <div>
-          <h2 className="text-3xl tracking-widest font-semibold  mt-6 mb-4">
-            {title}
+          <h2 className="md:text-3xl text-xl tracking-widest font-semibold mt-4 mb-4 text-center md:text-left">
+            <span className="hidden md:inline">{title}</span>
+            <span className="inline md:hidden">{shortTitle}</span>
           </h2>
         </div>
       </div>
-      <div id="content" className="flex flex-col items-center mt-10">
+      <div id="content" className="flex flex-col items-center md:mt-10 mt-1 mx-4">
         <div className="max-w-2xl">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-4 text-lg text-gray-700"
+            className="mt-4 md:text-lg text-md text-gray-700"
           >
             <span>
               Innovative Software Engineer skilled in full-stack development,
@@ -74,12 +90,12 @@ export default function Home() {
               delivering high-quality code and enhancing user experiences.
             </span>
           </motion.p>
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-6">
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.6 }}
-              className="px-6 py-4 bg-[#312450] text-white font-bold rounded-3xl hover:bg-[#3c2c62] flex items-center"
+              className="mt-2 px-6 py-4 bg-[#312450] text-white font-bold rounded-3xl hover:bg-[#3c2c62] flex items-center"
             >
               <NavLink
                 to="/contact"

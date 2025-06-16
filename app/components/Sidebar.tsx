@@ -1,4 +1,7 @@
 import { NavLink, useLocation } from "react-router";
+import { useState } from "react";
+import MenuIcon from "~/icons/menu";
+import CloseIcon from "~/icons/close";
 
 interface SidebarProps {
   className?: string;
@@ -25,21 +28,31 @@ function SideBarLink({ to, children }: SideBarLinkProps) {
 }
 
 export default function Sidebar({ className }: SidebarProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <section
-      id="sidebar"
-      className={`p-10 pt-2 bg-[#312450] cursor-default h-screen fixed left-0 overflow-x-hidden overflow-y-auto text-right top-0 z-[10000] ${className}`}
-    >
-      <div className="inner flex flex-col justify-center min-h-full opacity-100 w-full transition-opacity ease-in-out duration-1000">
-        <nav>
-          <ul className="list-none p-0">
-            <SideBarLink to="/">Home</SideBarLink>
-            <SideBarLink to="/about">About</SideBarLink>
-            <SideBarLink to="/services">Services</SideBarLink>
-            <SideBarLink to="/contact">Contact</SideBarLink>
-          </ul>
-        </nav>
-      </div>
-    </section>
+    <>
+      <button
+        className="fixed top-4 right-4 z-[10001] p-2 bg-[#312450] text-white rounded-md md:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? <CloseIcon /> : <MenuIcon />}
+      </button>
+      <section
+        id="sidebar"
+        className={`p-10 pt-2 bg-[#312450] cursor-default h-screen fixed top-0 left-0 w-full overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${isOpen ? "translate-y-0" : "-translate-y-full"} md:translate-y-0 md:w-auto ${className}`}
+      >
+        <div className="inner flex flex-col justify-center min-h-full opacity-100 w-full transition-opacity ease-in-out duration-1000">
+          <nav>
+            <ul className="list-none p-0">
+              <SideBarLink to="/">Home</SideBarLink>
+              <SideBarLink to="/about">About</SideBarLink>
+              <SideBarLink to="/services">Services</SideBarLink>
+              <SideBarLink to="/contact">Contact</SideBarLink>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </>
   );
 }
