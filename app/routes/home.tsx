@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router";
+import ArrowUpLeftIcon from "~/icons/arrow-up-left";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -36,7 +38,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" bg-white  h-full flex justify-center transition ease-in-out duration-1000">
+    <div className=" bg-white  h-full flex flex-col justify-center transition ease-in-out duration-1000">
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-row">
           <motion.div
@@ -53,9 +55,43 @@ export default function Home() {
           </motion.div>
         </div>
         <div>
-          <h2 className="text-3xl tracking-widest font-semibold  mt-6">
+          <h2 className="text-3xl tracking-widest font-semibold  mt-6 mb-4">
             {title}
           </h2>
+        </div>
+      </div>
+      <div id="content" className="flex flex-col items-center mt-10">
+        <div className="max-w-2xl">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="mt-4 text-lg text-gray-700"
+          >
+            <span>
+              Innovative Software Engineer skilled in full-stack development,
+              cloud computing, and scalable solutions. Passionate about
+              delivering high-quality code and enhancing user experiences.
+            </span>
+          </motion.p>
+          <div className="flex justify-end">
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.6 }}
+              className="px-6 py-4 bg-[#312450] text-white font-bold rounded-3xl hover:bg-[#3c2c62] flex items-center"
+            >
+              <NavLink
+                to="/contact"
+                className="text-white no-underline uppercase flex items-center"
+              >
+                <span className="mr-2">
+                  <ArrowUpLeftIcon />
+                </span>
+                CONTACT
+              </NavLink>
+            </motion.button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,14 +1,9 @@
 export default function Contact() {
   return (
     <section id="three" className="wrapper style1 fade-up">
-      <div className="inner">
+      <div className="inner ml-20">
         <h2>Get in touch</h2>
-        <p>
-          Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis
-          mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget
-          hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit
-          quis lorem.
-        </p>
+       
         <div className="split style1">
           <section>
             <form method="post" action="#">
@@ -38,52 +33,28 @@ export default function Contact() {
           <section>
             <ul className="contact">
               <li>
-                <h3>Address</h3>
-                <span>
-                  12345 Somewhere Road #654
-                  <br />
-                  Nashville, TN 00000-0000
-                  <br />
-                  USA
-                </span>
+                <h3>Name</h3>
+                <span>Alex Ventura Quiroz</span>
               </li>
               <li>
-                <h3>Email</h3>
-                <a href="#">user@untitled.tld</a>
+                <h3>Title</h3>
+                <span>SENIOR FULLSTACK DEVELOPER</span>
+              </li>
+              <li>
+                <h3>Location</h3>
+                <span>Buenos Aires, Argentina</span>
               </li>
               <li>
                 <h3>Phone</h3>
-                <span>(000) 000-0000</span>
+                <span>(+54)911-34034426</span>
               </li>
               <li>
-                <h3>Social</h3>
-                <ul className="icons">
-                  <li>
-                    <a href="#" className="icon brands fa-brands fa-twitter">
-                      <span className="label">Twitter</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon brands fa-brands fa-facebook-f">
-                      <span className="label">Facebook</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon brands fa-brands fa-github">
-                      <span className="label">GitHub</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon brands fa-brands fa-instagram">
-                      <span className="label">Instagram</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon brands fa-brands fa-linkedin-in">
-                      <span className="label">LinkedIn</span>
-                    </a>
-                  </li>
-                </ul>
+                <h3>Email</h3>
+                <a href="mailto:alex.rv11@gmail.com">alex.rv11@gmail.com</a>
+              </li>
+              <li>
+                <h3>GitHub</h3>
+                <a href="https://github.com/alexrv11">https://github.com/alexrv11</a>
               </li>
             </ul>
           </section>
@@ -91,4 +62,4 @@ export default function Contact() {
       </div>
     </section>
   );
-} 
+}
