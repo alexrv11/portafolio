@@ -4,12 +4,11 @@ import Footer from "~/components/Footer";
 
 export default function AppLayout() {
   return (
-    <div className="is-preload">
+    <div className="is-preload flex">
       <Sidebar />
-      <div id="wrapper">
+      <div id="wrapper" className="flex-1">
         <Outlet />
       </div>
-      <Footer />
     </div>
   );
-} 
+}

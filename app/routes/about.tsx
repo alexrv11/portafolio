@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 
 export default function About() {
   return (
@@ -16,9 +15,6 @@ export default function About() {
             </p>
             <ul className="actions">
               <li>
-                <Link to="/generic" className="button">
-                  Learn more
-                </Link>
               </li>
             </ul>
           </div>
@@ -35,13 +31,6 @@ export default function About() {
               Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
               turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
             </p>
-            <ul className="actions">
-              <li>
-                <Link to="/generic" className="button">
-                  Learn more
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
@@ -56,13 +45,6 @@ export default function About() {
               Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam
               turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
             </p>
-            <ul className="actions">
-              <li>
-                <Link to="/generic" className="button">
-                  Learn more
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </section>

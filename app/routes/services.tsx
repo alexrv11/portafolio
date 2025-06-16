@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 
 export default function Services() {
   return (
@@ -61,13 +60,6 @@ export default function Services() {
             </p>
           </section>
         </div>
-        <ul className="actions">
-          <li>
-            <Link to="/generic" className="button">
-              Learn more
-            </Link>
-          </li>
-        </ul>
       </div>
     </section>
   );
