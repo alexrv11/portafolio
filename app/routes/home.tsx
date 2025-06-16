@@ -18,12 +18,13 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const [isDark, setIsDark] = useState<boolean>(true);
     const onHandlerChangeTheme = () => {
+      console.log("Change theme", isDark);
       setIsDark((value: boolean) => !value);
     };
   
     return (
-      <div className={isDark ? "dark h-full w-full" : "h-full w-full"}>
-        <div className=" bg-white dark:bg-slate-950 h-full w-full flex justify-center  text-gray-800 dark:text-violet-100 transition ease-in-out duration-1000">
+      <div className={isDark ? "dark h-full" : "h-full"}>
+        <div className=" bg-white dark:bg-slate-950 h-full flex justify-center  text-gray-800 dark:text-violet-100 transition ease-in-out duration-1000">
           <ThemeButton onClick={onHandlerChangeTheme} />
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row">
