@@ -7,11 +7,12 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-white;
+  @apply text-gray-900;
+  @apply antialiased;
+  @apply font-sans;
+  @apply text-base;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
 
   margin: 0;
   max-width: 100%;
