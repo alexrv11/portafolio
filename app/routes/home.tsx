@@ -3,6 +3,7 @@ import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router";
 import ArrowUpLeftIcon from "~/icons/arrow-up-left";
+import Button from "~/components/Button";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -93,16 +94,8 @@ export default function Home() {
               delivering high-quality code and enhancing user experiences.
             </span>
           </motion.p>
-          <div className="flex justify-end mt-6">
-            <motion.button
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ backgroundColor: "#064e3b" }}
-              transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
-              className="group pointer-events-auto relative flex h-fit w-fit items-center justify-center overflow-hidden rounded-full bg-[#312450] px-6 py-2 font-bold uppercase tracking-wide text-white text-base"
-            >
-              <span className="absolute inset-0 bg-green-800 translate-y-full transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:translate-y-0 group-hover:rounded-none"></span>
-
+          <div className="flex justify-end mt-8">
+            <Button>
               <NavLink
                 to="/contact"
                 className="text-white no-underline uppercase flex items-center"
@@ -112,7 +105,7 @@ export default function Home() {
                   <span>CONTACT</span>
                 </span>
               </NavLink>
-            </motion.button>
+            </Button>
           </div>
         </div>
       </div>

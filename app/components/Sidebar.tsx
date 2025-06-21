@@ -44,7 +44,7 @@ export default function Sidebar({ className }: SidebarProps) {
       </button>
       <section
         id="sidebar"
-        className={`p-10 pt-2 bg-[#312450] cursor-default h-screen fixed top-0 left-0 w-full overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${isOpen ? "translate-y-0" : "-translate-y-full"} md:translate-y-0 md:w-auto ${className}`}
+        className={`p-10 pt-2 bg-[#312450] cursor-default h-screen top-0 left-0 w-full overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${isOpen ? "translate-y-0" : "-translate-y-full"} md:translate-y-0 md:w-auto ${className}`}
       >
         <div className="inner flex flex-col justify-center min-h-full opacity-100 w-full transition-opacity ease-in-out duration-1000">
           <nav>
