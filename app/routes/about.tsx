@@ -25,7 +25,7 @@ export default function About() {
         "Gorilla Mux",
         "Sprint Boot",
         "GraphQL",
-        "AWS SST"
+        "AWS SST",
       ],
     },
     {
@@ -39,9 +39,9 @@ export default function About() {
         "Redis",
         "MongoDB",
         "Kafka",
-        "RabbitMQ"
+        "RabbitMQ",
       ],
-    }
+    },
   ];
 
   return (
@@ -85,6 +85,18 @@ export default function About() {
                 </span>
               </div>
             </span>
+            <div className="mt-8 mb-4 ">
+              <span className="text-base">
+                Software Developer with 12+ years of experience, and a passion
+                for cutting-edge technologies. My main focus is on usability,
+                brand-new web solutions, and the creation of rich experiences
+                for users. Worked on various projects related to the fintech
+                industry. Always willing to implement the best practices and
+                coding standards for the team in order to create an exceptional
+                quality product. I'm a responsible problem solver with deep
+                analytical and good management skills.
+              </span>
+            </div>
           </div>
           <div className="relative z-0 lg:col-span-6 col-span-full flex w-full items-center overflow-clip md:items-end order-1 md:order-2">
             <section className="self-start md:px-6 py-5 px-0 text-[#312450] w-full">
@@ -94,17 +106,32 @@ export default function About() {
                 </h2>
                 <div className="grid grid-cols-3 gap-0 md:gap-5 md:p-5 p-0">
                   {skills.map((category) => (
-                    <div key={category.category} className="p-2  transition self-start">
-                      <h3 className="hidden md:flex text-xl font-semibold mb-4">{category.category}</h3>
+                    <div
+                      key={category.category}
+                      className="p-2  transition self-start"
+                    >
+                      <h3 className="hidden md:flex text-xl font-semibold mb-4">
+                        {category.category}
+                      </h3>
                       <ul className="space-y-3 md:text-base">
                         {category.items.map((skill) => (
-                          <div key={skill} className="flex relative items-start gap-2 text-[#3124f0]">
+                          <div
+                            key={skill}
+                            className="flex relative items-start gap-2 text-[#3124f0]"
+                          >
                             <span className="group relative block h-fit overflow-hidden font-medium select-none">
                               <span className="block w-full transition-transform duration-500 ease-in-out translate-y-0 group-hover:-translate-y-full">
-                                <h1 className="font-mono cursor-default ">{skill}</h1>
+                                <h1 className="font-mono cursor-default ">
+                                  {skill}
+                                </h1>
                               </span>
-                              <span aria-hidden="true" className="absolute top-0 left-0 w-full block transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0">
-                                <h1 className="font-mono cursor-default ">{skill}</h1>
+                              <span
+                                aria-hidden="true"
+                                className="absolute top-0 left-0 w-full block transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0"
+                              >
+                                <h1 className="font-mono cursor-default ">
+                                  {skill}
+                                </h1>
                               </span>
                             </span>
                           </div>
