@@ -5,7 +5,7 @@ export default function AppLayout() {
   return (
     <div className="is-preload flex min-h-screen max-w-full">
       <Sidebar />
-      <div id="wrapper" className="flex-1 flex flex-col">
+      <div id="wrapper" className="flex-1 flex flex-col md:mt-0 mt-4">
         <Outlet />
       </div>
     </div>
