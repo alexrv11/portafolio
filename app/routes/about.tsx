@@ -48,46 +48,33 @@ export default function About() {
     <div className="relative pt-14 md:pt-0 mx-4">
       <div
         className="section-padding sm:pb-[10em] pb-[5em] flex flex-col gap-y-16 lg:gap-y-32 md:pt-[15vh]"
-        style={{ transform: "translate3d(0px, -7.0759px, 0px) scale(0.9965)" }}
       >
         <div className="flex flex-col md:flex-row gap-4">
           <div className="text-2xl md:text-4xl relative z-30 flex w-full flex-col justify-center col-span-full leading-none text-[#312450] mix-blend-exclusion lg:col-end-7 mt-4 mb-4 order-2 md:order-1 md:ml-20">
             <span>
               <div className="overflow-hidden">
                 <span className="">
-                  {"DEVELOPER".split("").map((char, i) => (
-                    <span key={"dev-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
+                  CLOUD SOLUTION
                 </span>
               </div>
             </span>
             <span>
               <div className="overflow-hidden">
                 <span className="">
-                  {"ARCHITECT".split("").map((char, i) => (
-                    <span key={"arc-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
+                  FULLSTACK DEVELOPMENT
                 </span>
               </div>
             </span>
             <span>
               <div className="overflow-hidden">
                 <span className="">
-                  {"CREATOR".split("").map((char, i) => (
-                    <span key={"cre-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
+                  SOFTWARE ARCHITECTURE
                 </span>
               </div>
             </span>
             <div className="mt-8 mb-4 ">
-              <span className="text-base">
-                Software Developer with 12+ years of experience, and a passion
+              <span className="text-base leading-none">
+                Software Engineer with 12+ years of experience, and a passion
                 for cutting-edge technologies. My main focus is on usability,
                 brand-new web solutions, and the creation of rich experiences
                 for users. Worked on various projects related to the fintech
