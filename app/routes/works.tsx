@@ -6,11 +6,6 @@ const worksData = [
 		title: "HookArt",
 		links: [
 			{
-				icon: "/img/out.svg",
-				url: "https://translate.google.com/website?sl=en&tl=es&hl=es&client=srp&u=https://bykahomes.com/",
-				label: "Enlace a la plataforma",
-			},
-			{
 				url: "https://translate.google.com/website?sl=en&tl=es&hl=es&client=srp&u=https://www.behance.net/gallery/202888025/SAAS-UXUI-Booking-and-management-by-Brice",
 				label: "Diseño web / Presentación",
 			},
@@ -20,10 +15,7 @@ const worksData = [
 		images: ["https://media.istockphoto.com/id/1265024528/photo/no-better-adventure-buddy.jpg?s=1024x1024&w=is&k=20&c=tObIEgQAXKm_OQwuZ0xNXA-U0QMXx2Okgm_L6Ew9Ygk=", "https://media.istockphoto.com/id/1322104312/photo/freedom-chains-that-transform-into-birds-charge-concept.jpg?s=1024x1024&w=is&k=20&c=CoqB4hDuRFuxxEZ4Fu84uhLDftgeyAtl8TXEQq-JdtM="],
 		title: "GoodLeap",
 		links: [
-			{
-				url: "https://translate.google.com/website?sl=en&tl=es&hl=es&client=srp&u=https://www.behance.net/gallery/202888025/SAAS-UXUI-Booking-and-management-by-Brice",
-				label: "Sr Golang Developer",
-			},
+
 			{
 				icon: "/img/out.svg",
 				url: "https://translate.google.com/website?sl=en&tl=es&hl=es&client=srp&u=https://bykahomes.com/",

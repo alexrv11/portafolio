@@ -30,6 +30,7 @@ Start the development server with HMR:
 
 ```bash
 npm run dev --port 5178
+AWS_PROFILE={profile} npx sst dev
 ```
 ```bash
 npx react-router dev --port 5178

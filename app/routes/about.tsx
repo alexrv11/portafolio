@@ -45,9 +45,9 @@ export default function About() {
   ];
 
   return (
-    <div className="relative pt-14 md:pt-0 mx-4">
+    <div className="md:pt-0 mx-4 h-full flex flex-col justify-center transition ease-in-out duration-1000">
       <div
-        className="section-padding sm:pb-[10em] pb-[5em] flex flex-col gap-y-16 lg:gap-y-32 md:pt-[15vh]"
+        className="section-padding flex flex-col  gap-y-16 lg:gap-y-32"
       >
         <div className="flex flex-col md:flex-row gap-4">
           <div className="text-2xl md:text-4xl relative z-30 flex w-full flex-col justify-center col-span-full leading-none text-[#312450] mix-blend-exclusion lg:col-end-7 mt-4 mb-4 order-2 md:order-1 md:ml-20">

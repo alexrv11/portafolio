@@ -45,12 +45,12 @@ export default function Sidebar({ className }: SidebarProps) {
       </button>
       <section
         id="sidebar"
-        className={`fixed p-10 pt-2 bg-[#312450] cursor-default max-h-screen top-0 left-0 w-full md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${
-          isOpen ? "translate-y-0" : "-translate-y-full"
+        className={`flex px-4 bg-[#312450] cursor-default md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${
+          isOpen ? "fixed translate-y-0 top-0 left-0 " : "-translate-y-full"
         } md:static md:translate-y-0 ${className}`}
       >
-        <aside>
-          <div className="inner flex flex-col justify-center min-h-full opacity-100 w-full transition-opacity ease-in-out duration-1000">
+        <aside className="inner flex flex-col justify-center w-full">
+          <div className="flex flex-col justify-center   opacity-100 transition-opacity ease-in-out duration-1000">
             <nav>
               <ul className="list-none p-0">
                 <SideBarLink to="/" handleClick={() => setIsOpen(false)}>
