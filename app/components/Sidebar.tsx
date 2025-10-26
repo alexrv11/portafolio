@@ -1,8 +1,7 @@
 import { NavLink, useLocation } from "react-router";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import MenuIcon from "~/icons/menu";
-import CloseIcon from "~/icons/close";
+import { routes } from "./routes";
 
 interface SidebarProps {
   className?: string;
@@ -14,7 +13,7 @@ interface SideBarLinkProps {
   handleClick?: () => void;
 }
 
-function SideBarLink({ to, children, handleClick }: SideBarLinkProps) {
+export function SideBarLink({ to, children, handleClick }: SideBarLinkProps) {
   const location = useLocation();
   const isActive = location.pathname === to;
 
@@ -40,12 +39,6 @@ export default function Sidebar({ className }: SidebarProps) {
 
   return (
     <>
-      <button
-        className="fixed top-4 right-4 z-[10001] p-2 bg-[#312450] text-white rounded-md md:hidden"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <CloseIcon /> : <MenuIcon />}
-      </button>
       <motion.section
         id="sidebar"
         onMouseEnter={() => setIsHovering(true)}
@@ -60,7 +53,7 @@ export default function Sidebar({ className }: SidebarProps) {
              }
         }
         transition={{ duration: 0.35, ease: "linear" }}
-        className={`flex px-4 cursor-default md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${
+        className={`flex px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${
           isOpen ? "fixed translate-y-0 top-0 left-0 " : "-translate-y-full"
         } md:static md:translate-y-0 ${className}`}
         style={{ backgroundColor: "#312450" }}
@@ -87,18 +80,11 @@ export default function Sidebar({ className }: SidebarProps) {
           <div className="flex flex-col justify-center   opacity-100 transition-opacity ease-in-out duration-1000">
             <nav>
               <ul className="list-none p-0">
-                <SideBarLink to="/" handleClick={() => setIsOpen(false)}>
-                  Home
-                </SideBarLink>
-                <SideBarLink to="/about" handleClick={() => setIsOpen(false)}>
-                  About
-                </SideBarLink>
-                <SideBarLink to="/works" handleClick={() => setIsOpen(false)}>
-                  Works
-                </SideBarLink>
-                <SideBarLink to="/contact" handleClick={() => setIsOpen(false)}>
-                  Contact
-                </SideBarLink>
+                {routes.map((route) => (
+                  <SideBarLink to={route.to} handleClick={() => setIsOpen(false)}>
+                    {route.textLabel}
+                  </SideBarLink>
+                ))}
               </ul>
             </nav>
           </div>
