@@ -50,30 +50,30 @@ export default function About() {
         className="section-padding flex flex-col  gap-y-16 lg:gap-y-32"
       >
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="text-2xl md:text-4xl relative z-30 flex w-full flex-col justify-center col-span-full leading-none text-[#312450] mix-blend-exclusion lg:col-end-7 mt-4 mb-4 order-2 md:order-1 md:ml-20">
+          <div className=" relative z-30 flex w-full flex-col justify-center col-span-full leading-normal text-[#312450] lg:col-end-7 mt-4 mb-4 order-2 md:order-1 md:ml-20">
             <span>
               <div className="overflow-hidden">
-                <span className="">
+                <span className="text-2xl md:text-4xl">
                   CLOUD SOLUTION
                 </span>
               </div>
             </span>
             <span>
               <div className="overflow-hidden">
-                <span className="">
+                <span className="text-2xl md:text-4xl">
                   FULLSTACK DEVELOPMENT
                 </span>
               </div>
             </span>
             <span>
               <div className="overflow-hidden">
-                <span className="">
+                <span className="text-2xl md:text-4xl">
                   SOFTWARE ARCHITECTURE
                 </span>
               </div>
             </span>
             <div className="mt-8 mb-4 ">
-              <span className="text-base leading-none">
+              <p className="text-base text-[#312450]">
                 Software Engineer with 12+ years of experience, and a passion
                 for cutting-edge technologies. My main focus is on usability,
                 brand-new web solutions, and the creation of rich experiences
@@ -82,7 +82,7 @@ export default function About() {
                 coding standards for the team in order to create an exceptional
                 quality product. I'm a responsible problem solver with deep
                 analytical and good management skills.
-              </span>
+              </p>
             </div>
           </div>
           <div className="relative z-0 lg:col-span-6 col-span-full flex w-full items-center overflow-clip md:items-end order-1 md:order-2">

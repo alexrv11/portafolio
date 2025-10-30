@@ -52,10 +52,8 @@ export default function Sidebar({ className }: SidebarProps) {
 
              }
         }
-        transition={{ duration: 0.35, ease: "linear" }}
-        className={`flex px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${
-          isOpen ? "fixed translate-y-0 top-0 left-0 " : "-translate-y-full"
-        } md:static md:translate-y-0 ${className}`}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+        className={`flex px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000]  md:static md:translate-y-0 ${className}`}
         style={{ backgroundColor: "#312450" }}
       >
         {/* Horizontal gradient overlay: positioned under content, animates via transform for performance */}
