@@ -38,21 +38,21 @@ export default function Contact() {
       id="contact"
       className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-2 lg:px-4"
     >
-      <div className=" w-full max-w-4xl flex flex-col md:flex-row gap-2">
+      <div className=" w-full max-w-4xl flex flex-col md:flex-row gap-2 text-[#312450]">
 
         <div className="flex-1 flex flex-col justify-center rounded-2xl gap-6">
           <div>
-            <h2 className="text-sm uppercase font-bold leading-loose">I'm here to help you</h2>
-            <div className="text-5xl">
+            <h2 className="text-sm uppercase font-bold leading-loose opacity-40">I'm here to help you</h2>
+            <div className="text-5xl mt-2">
               <span className="font-bold">Discuss </span>
               <span>Your Software Solution Needs</span>
             </div>
           </div>
           <div>
-            <span>Are you looking for top quality software solutions tailored to your needs? Reach out with a message</span>
+            <span className="opacity-60">Are you looking for top quality software solutions tailored to your needs? Reach out with a message</span>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 border-[0.2px] border-[#312450]/20 rounded-2xl p-6 shadow-lg">
           <form method="post" action="#" className="space-y-6" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-4">
               <div>
@@ -67,7 +67,7 @@ export default function Contact() {
                   name="name"
                   id="name"
                   value={form.name} onChange={handleChange}
-                  className="w-full rounded-lg border  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896]"
+                  className="w-full rounded-lg border-[0.8px]  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896] focus:border-0"
                 />
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function Contact() {
                   name="email"
                   id="email"
                   value={form.email} onChange={handleChange}
-                  className="w-full rounded-lg border  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896]"
+                  className="w-full rounded-lg border-[0.8px] focus:border-0  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896]"
                 />
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                 id="message"
                 rows={5}
                 value={form.message} onChange={handleChange}
-                className="w-full rounded-lg border   px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896]"
+                className="w-full rounded-lg border-[0.8px] focus:border-0  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00c896]"
               ></textarea>
             </div>
             <div>
