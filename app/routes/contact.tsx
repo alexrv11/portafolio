@@ -38,18 +38,18 @@ export default function Contact() {
       id="contact"
       className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-2 lg:px-4"
     >
-      <div className=" w-full max-w-4xl flex flex-col md:flex-row gap-2 text-[#312450]">
+      <div className=" w-full max-w-4xl flex flex-col md:flex-row gap-6 md:gap-2 text-[#312450]">
 
-        <div className="flex-1 flex flex-col justify-center rounded-2xl gap-6">
+        <div className="flex-1 flex flex-col justify-center rounded-2xl gap-2md:gap-6">
           <div>
-            <h2 className="text-sm uppercase font-bold leading-loose opacity-40">I'm here to help you</h2>
-            <div className="text-5xl mt-2">
+            <h3 className="text-sm uppercase font-bold leading-loose opacity-40">I'm here to help you</h3>
+            <div className="text-xl mt-2 md:text-5xl">
               <span className="font-bold">Discuss </span>
               <span>Your Software Solution Needs</span>
             </div>
           </div>
           <div>
-            <span className="opacity-60">Are you looking for top quality software solutions tailored to your needs? Reach out with a message</span>
+            <span className="opacity-60 text-sm md:text-base">Are you looking for top quality software solutions tailored to your needs? Reach out with a message</span>
           </div>
         </div>
         <div className="flex-1 border-[0.2px] border-[#312450]/20 rounded-2xl p-6 shadow-lg">

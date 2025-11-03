@@ -2,6 +2,26 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import Variants from "~/components/NavMenuToggle";
 import Sidebar from "~/components/Sidebar";
+import type { Route } from "./+types/_app";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Alex Ventura - Senior Software Engineer" },
+    {
+      name: "description",
+      content:
+        "Discover Alex Ventura's portfolio showcasing expertise in software engineering, web development, and innovative solutions.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Alex Ventura, Software Engineer, Web Developer, Portfolio, React, JavaScript, Tailwind CSS",
+    },
+    { name: "author", content: "Alex Ventura" },
+    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+    { name: "robots", content: "index, follow" },
+  ];
+}
 
 export function useIsMobile(breakpoint = 768) {
   // default false on server to avoid SSR mismatch
@@ -46,9 +66,9 @@ export default function AppLayout() {
       {mounted && isMobile ? (
         <Variants />
       ) : (
-        <Sidebar />
+        <Sidebar className="max-h-screen"/>
       )}
-      <div id="wrapper" className="flex-1 flex flex-col md:mt-0 mt-8 w-full">
+      <div id="wrapper" className="flex-1 flex flex-col mt-8 w-full md:ml-72">
         <Outlet />
       </div>
     </div>

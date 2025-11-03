@@ -38,7 +38,7 @@ export default function Sidebar({ className }: SidebarProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <>
+    <div className="fixed top-0 left-0 h-full z-[2000]">
       <motion.section
         id="sidebar"
         onMouseEnter={() => setIsHovering(true)}
@@ -46,49 +46,34 @@ export default function Sidebar({ className }: SidebarProps) {
         animate={
           shouldReduceMotion
             ? {}
-            : { 
-              backgroundColor: isHovering ? "#00c896" : "#312450",
-              color: isHovering ? "#000000" : "#00c896",
-
-             }
+            : {
+                backgroundColor: isHovering ? "#372a54ff" : "#312450",
+                color: "#00c896",
+              }
         }
-        transition={{ duration: 0.65, ease: "easeOut" }}
-        className={`flex px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000]  md:static md:translate-y-0 ${className}`}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`flex max-w-full max-h-full h-full px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000]  md:static md:translate-y-0 ${className}`}
         style={{ backgroundColor: "#312450" }}
       >
-        {/* Horizontal gradient overlay: positioned under content, animates via transform for performance */}
-        {!shouldReduceMotion && (
-          <motion.div
-            aria-hidden
-            initial={{ x: '-100%', scaleX: 0.15 }}
-            animate={isHovering ? { x: '0%', scaleX: 1 } : { x: '-100%', scaleX: 0.15 }}
-            transition={{ duration: 0.45, ease: [0.25, 0.8, 0.25, 1] }}
-            className="pointer-events-none absolute left-0 top-0 h-full w-full z-0"
-            style={{
-              transformOrigin: 'left',
-              background:
-                'linear-gradient(90deg, rgba(60,44,98,0.12) 0%, rgba(60,44,98,0.22) 40%, rgba(255,255,255,0.03) 100%)',
-              mixBlendMode: 'overlay',
-            }}
-          />
-        )}
-        <aside className="inner flex flex-col justify-center w-full">
-          <motion.div
-          >
-          <div className="flex flex-col justify-center   opacity-100 transition-opacity ease-in-out duration-1000">
-            <nav>
-              <ul className="list-none p-0">
-                {routes.map((route) => (
-                  <SideBarLink to={route.to} handleClick={() => setIsOpen(false)}>
-                    {route.textLabel}
-                  </SideBarLink>
-                ))}
-              </ul>
-            </nav>
-          </div>
+        <aside className="flex flex-col justify-center w-full">
+          <motion.div>
+            <div className="flex flex-col justify-center opacity-100 transition-opacity ease-in-out duration-1000">
+              <nav>
+                <ul className="list-none p-0">
+                  {routes.map((route) => (
+                    <SideBarLink
+                      to={route.to}
+                      handleClick={() => setIsOpen(false)}
+                    >
+                      {route.textLabel}
+                    </SideBarLink>
+                  ))}
+                </ul>
+              </nav>
+            </div>
           </motion.div>
         </aside>
-  </motion.section>
-    </>
+      </motion.section>
+    </div>
   );
 }

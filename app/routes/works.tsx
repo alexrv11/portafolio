@@ -128,9 +128,9 @@ export default function Works() {
 	const [works] = useState(worksData);
 
 	return (
-		<section className="my-10 flex flex-col gap-4 items-center justify-center px-8">
+		<section className="my-10 flex flex-col md:gap-4 items-center justify-center md:px-8">
 			<h2 className="text-3xl font-bold mb-8">Work Experiences</h2>
-			<div className="flex gap-8 flex-wrap mb-12">
+			<div className="flex gap-8 flex-wrap mb-12 justify-center">
 				{works.map((work, idx) => (
 					<WorkCard
 						key={idx}
