@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+const homeSolar = '/home-solar.jpg';
 
 const worksData = [
 	{
@@ -8,7 +9,10 @@ const worksData = [
 		description: "Sustainability Platform",
 	},
 	{
-		images: ["https://media.istockphoto.com/id/1265024528/photo/no-better-adventure-buddy.jpg?s=1024x1024&w=is&k=20&c=tObIEgQAXKm_OQwuZ0xNXA-U0QMXx2Okgm_L6Ew9Ygk=", "https://media.istockphoto.com/id/1322104312/photo/freedom-chains-that-transform-into-birds-charge-concept.jpg?s=1024x1024&w=is&k=20&c=CoqB4hDuRFuxxEZ4Fu84uhLDftgeyAtl8TXEQq-JdtM="],
+		images: [
+			"https://media.istockphoto.com/id/1265024528/photo/no-better-adventure-buddy.jpg?s=1024x1024&w=is&k=20&c=tObIEgQAXKm_OQwuZ0xNXA-U0QMXx2Okgm_L6Ew9Ygk=",
+			homeSolar
+		],
 		title: "GoodLeap",
 		description: "Solar Financing",
 	},
