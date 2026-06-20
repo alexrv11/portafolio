@@ -5,6 +5,14 @@
 
 declare module "sst" {
   export interface Resource {
+    "GMAIL_APP_PASSWORD": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "GMAIL_USER": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "portafolio-ventulab": {
       "type": "sst.aws.React"
       "url": string

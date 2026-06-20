@@ -1,13 +1,15 @@
 import { Outlet } from "react-router";
-import Sidebar from "~/components/Sidebar";
+import { NavBar } from "~/components/NavBar";
+import Footer from "~/components/Footer";
 
 export default function AppLayout() {
   return (
-    <div className="is-preload flex min-h-screen max-w-full">
-      <Sidebar />
-      <div id="wrapper" className="flex-1 flex flex-col md:mt-0 mt-4">
+    <div className="flex flex-col min-h-screen bg-white">
+      <NavBar />
+      <main className="flex-1 flex flex-col">
         <Outlet />
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }

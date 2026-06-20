@@ -1,150 +1,120 @@
-import React from "react";
+const stats = [
+  { value: "14+", label: "Years of experience" },
+  { value: "5", label: "Companies & clients" },
+  { value: "30%", label: "Cloud cost reduction at Blaze" },
+];
+
+const skills = [
+  {
+    category: "Languages",
+    color: "bg-violet-50 text-violet-700 border-violet-200",
+    dot: "bg-violet-400",
+    items: ["Golang", "TypeScript", "JavaScript", "Java"],
+  },
+  {
+    category: "Frontend",
+    color: "bg-sky-50 text-sky-700 border-sky-200",
+    dot: "bg-sky-400",
+    items: ["ReactJS", "Next.js", "React Native"],
+  },
+  {
+    category: "Backend",
+    color: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    dot: "bg-indigo-400",
+    items: ["Node.js", "Express.js", "GraphQL", "gRPC", "Spring Boot", "Gin Gonic", "Gorilla Mux", "WebSockets"],
+  },
+  {
+    category: "Cloud & Infra",
+    color: "bg-orange-50 text-orange-700 border-orange-200",
+    dot: "bg-orange-400",
+    items: ["AWS Lambda", "API Gateway", "S3", "SQS", "CloudFront", "DynamoDB", "EKS", "Cognito", "Docker", "SST"],
+  },
+  {
+    category: "Databases",
+    color: "bg-teal-50 text-teal-700 border-teal-200",
+    dot: "bg-teal-400",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "ElasticSearch", "Oracle", "DynamoDB"],
+  },
+  {
+    category: "Messaging & CI/CD",
+    color: "bg-rose-50 text-rose-700 border-rose-200",
+    dot: "bg-rose-400",
+    items: ["Kafka", "RabbitMQ", "EventBridge", "GitHub Actions", "GitLab CI", "Docker Compose"],
+  },
+];
 
 export default function About() {
-  const skills = [
-    {
-      category: "Languages & Tools",
-      items: [
-        "Golang",
-        "Java",
-        "Typescript",
-        "JavaScript",
-        "SQL",
-        "Docker",
-        "Firebase",
-      ],
-    },
-    {
-      category: "Frameworks & Libraries",
-      items: [
-        "React",
-        "Express.js",
-        "Next.js",
-        "Gin Tonic",
-        "Echo",
-        "Gorilla Mux",
-        "Sprint Boot",
-        "GraphQL",
-        "AWS SST",
-      ],
-    },
-    {
-      category: "Data",
-      items: [
-        "DynamoDB",
-        "ElasticSearch",
-        "Mysql",
-        "Postgres",
-        "Oracle",
-        "Redis",
-        "MongoDB",
-        "Kafka",
-        "RabbitMQ",
-      ],
-    },
-  ];
-
   return (
-    <div className="relative pt-14 md:pt-0 mx-4">
-      <div
-        className="section-padding sm:pb-[10em] pb-[5em] flex flex-col gap-y-16 lg:gap-y-32 md:pt-[15vh]"
-        style={{ transform: "translate3d(0px, -7.0759px, 0px) scale(0.9965)" }}
-      >
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="text-2xl md:text-4xl relative z-30 flex w-full flex-col justify-center col-span-full leading-none text-[#312450] mix-blend-exclusion lg:col-end-7 mt-4 mb-4 order-2 md:order-1 md:ml-20">
-            <span>
-              <div className="overflow-hidden">
-                <span className="">
-                  {"DEVELOPER".split("").map((char, i) => (
-                    <span key={"dev-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </span>
-            <span>
-              <div className="overflow-hidden">
-                <span className="">
-                  {"ARCHITECT".split("").map((char, i) => (
-                    <span key={"arc-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </span>
-            <span>
-              <div className="overflow-hidden">
-                <span className="">
-                  {"CREATOR".split("").map((char, i) => (
-                    <span key={"cre-" + i} className="inline-block">
-                      {char}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </span>
-            <div className="mt-8 mb-4 ">
-              <span className="text-base">
-                Software Developer with 12+ years of experience, and a passion
-                for cutting-edge technologies. My main focus is on usability,
-                brand-new web solutions, and the creation of rich experiences
-                for users. Worked on various projects related to the fintech
-                industry. Always willing to implement the best practices and
-                coding standards for the team in order to create an exceptional
-                quality product. I'm a responsible problem solver with deep
-                analytical and good management skills.
-              </span>
-            </div>
+    <div className="bg-gray-50 flex-1">
+      {/* Hero */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row md:items-center gap-12">
+          {/* Text */}
+          <div className="flex-1">
+            <p className="text-xs font-bold tracking-widest uppercase text-[#5e42a6] mb-4">
+              About me
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#312450] leading-tight mb-6">
+              Developer.
+              <br />
+              Architect.
+              <br />
+              <span className="text-[#5e42a6]">Creator.</span>
+            </h1>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
+              Software Developer with 14+ years of experience building high-quality web
+              applications for the fintech and gaming industries. Specializes in cloud
+              architecture and backend systems, with solid experience delivering performant
+              and accessible user interfaces end-to-end. Proven track record of establishing
+              engineering standards, leading code reviews, and mentoring teams.
+            </p>
           </div>
-          <div className="relative z-0 lg:col-span-6 col-span-full flex w-full items-center overflow-clip md:items-end order-1 md:order-2">
-            <section className="self-start md:px-6 py-5 px-0 text-[#312450] w-full">
-              <div className="max-w-6xl mx-auto">
-                <h2 className="md:text-4xl text-2xl font-bold mb-8 text-center">
-                  Skills
-                </h2>
-                <div className="grid grid-cols-3 gap-0 md:gap-5 md:p-5 p-0">
-                  {skills.map((category) => (
-                    <div
-                      key={category.category}
-                      className="p-2  transition self-start"
-                    >
-                      <h3 className="hidden md:flex text-xl font-semibold mb-4">
-                        {category.category}
-                      </h3>
-                      <ul className="space-y-3 md:text-base">
-                        {category.items.map((skill) => (
-                          <div
-                            key={skill}
-                            className="flex relative items-start gap-2 text-[#3124f0]"
-                          >
-                            <span className="group relative block h-fit overflow-hidden font-medium select-none">
-                              <span className="block w-full transition-transform duration-500 ease-in-out translate-y-0 group-hover:-translate-y-full">
-                                <h1 className="font-mono cursor-default ">
-                                  {skill}
-                                </h1>
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                className="absolute top-0 left-0 w-full block transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0"
-                              >
-                                <h1 className="font-mono cursor-default ">
-                                  {skill}
-                                </h1>
-                              </span>
-                            </span>
-                          </div>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+
+          {/* Stats */}
+          <div className="flex flex-row md:flex-col gap-4 md:gap-6 flex-shrink-0">
+            {stats.map(({ value, label }) => (
+              <div
+                key={label}
+                className="flex-1 md:flex-none bg-gray-50 border border-gray-100 rounded-2xl px-6 py-5 text-center md:text-left min-w-[100px]"
+              >
+                <p className="text-3xl md:text-4xl font-bold text-[#312450]">{value}</p>
+                <p className="text-xs text-gray-500 mt-1 leading-snug">{label}</p>
               </div>
-            </section>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Skills */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <p className="text-xs font-bold tracking-widest uppercase text-[#5e42a6] mb-2">
+          Tech stack
+        </p>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#312450] mb-10">Skills & Technologies</h2>
+
+        <div className="flex flex-col gap-8">
+          {skills.map(({ category, color, dot, items }) => (
+            <div key={category}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`w-2 h-2 rounded-full ${dot}`} />
+                <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest">
+                  {category}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {items.map((skill) => (
+                  <span
+                    key={skill}
+                    className={`text-sm font-medium px-3 py-1.5 rounded-full border ${color}`}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

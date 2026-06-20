@@ -52,6 +52,7 @@ export default function Sidebar({ className }: SidebarProps) {
               <SideBarLink to="/" handleClick={() => setIsOpen(false)}>Home</SideBarLink>
               <SideBarLink to="/about" handleClick={() => setIsOpen(false)}>About</SideBarLink>
               <SideBarLink to="/works" handleClick={() => setIsOpen(false)}>Works</SideBarLink>
+              <SideBarLink to="/services" handleClick={() => setIsOpen(false)}>Services</SideBarLink>
               <SideBarLink to="/contact" handleClick={() => setIsOpen(false)}>Contact</SideBarLink>
             </ul>
           </nav>
