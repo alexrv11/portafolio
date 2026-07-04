@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import MenuIcon from "~/icons/menu";
 import CloseIcon from "~/icons/close";
+import { LinkedInIcon } from "~/icons/linkein";
+import { GithubIcon } from "~/icons/github";
 
 const links = [
   { id: "home", label: "Home" },
@@ -17,7 +19,8 @@ function scrollToSection(id: string) {
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [, setActiveSection] = useState("home");
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +54,7 @@ export const NavBar = () => {
 
           {/* Center tagline — hidden on mobile */}
           <span className="hidden md:block text-xs font-medium tracking-widest uppercase text-gray-400 select-none">
-            Digital Innovation © {new Date().getFullYear()}
+            Building products that scale © {new Date().getFullYear()}
           </span>
 
           {/* Right side */}
@@ -101,42 +104,49 @@ export const NavBar = () => {
           <div className="flex flex-1 min-h-0 px-10 md:px-16 py-6 gap-8">
 
             {/* Left — monogram + socials */}
-            <div className="hidden md:flex flex-col justify-between w-2/5 shrink-0">
+            <div className="hidden md:flex flex-col items-center justify-between w-2/5 shrink-0">
               <span className="text-white font-thin leading-none select-none"
                 style={{ fontSize: "clamp(6rem, 14vw, 14rem)" }}>
                 AV/
               </span>
-              <div className="flex flex-col gap-2 pb-2">
+              <div className="flex flex-col gap-4">
                 <a
-                  href="https://linkedin.com/in/alexrv11"
+                  href="https://www.linkedin.com/in/alexventuraq/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/30 hover:text-white text-sm transition-colors duration-200"
+                  className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-200"
+                  aria-label="LinkedIn"
                 >
-                  LinkedIn
+                  <span className="flex items-center w-5 h-5 shrink-0 [&_svg]:w-full [&_svg]:h-full"><LinkedInIcon /></span>
+                  <span className="text-sm leading-none">LinkedIn</span>
                 </a>
                 <a
                   href="https://github.com/alexrv11"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/30 hover:text-white text-sm transition-colors duration-200"
+                  className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-200"
+                  aria-label="GitHub"
                 >
-                  GitHub
+                  <span className="flex items-center w-5 h-5 shrink-0 [&_svg]:w-full [&_svg]:h-full"><GithubIcon /></span>
+                  <span className="text-sm leading-none">GitHub</span>
                 </a>
               </div>
             </div>
 
             {/* Right — nav links */}
-            <nav className="flex flex-col justify-center flex-1">
+            <nav className="flex flex-col justify-center items-start flex-1">
               {links.map(({ id, label }) => (
                 <a
                   key={id}
                   href={`#${id}`}
                   onClick={(e) => { e.preventDefault(); scrollToSection(id); setOpen(false); }}
-                  className={`block font-light leading-tight py-1 transition-colors duration-200 hover:text-white ${
-                    activeSection === id ? "text-white" : "text-white/25"
-                  }`}
-                  style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
+                  onMouseEnter={() => setHoveredLink(id)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  className="font-light leading-tight py-1 transition-colors duration-300"
+                  style={{
+                    fontSize: "clamp(2.5rem, 7vw, 6rem)",
+                    color: hoveredLink === null || hoveredLink === id ? "white" : "rgba(255,255,255,0.15)",
+                  }}
                 >
                   {label}
                 </a>
@@ -147,7 +157,7 @@ export const NavBar = () => {
           {/* Bottom bar */}
           <div className="shrink-0 px-10 md:px-16 pb-8 flex items-center justify-between">
             <span className="text-white/25 text-xs tracking-widest">
-              Digital Innovation © {new Date().getFullYear()}
+              Building products that scale © {new Date().getFullYear()}
             </span>
             <span className="text-white/25 text-xs">
               alex.rv11@gmail.com
