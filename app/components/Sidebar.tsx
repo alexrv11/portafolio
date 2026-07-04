@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import MenuIcon from "~/icons/menu";
-import CloseIcon from "~/icons/close";
+import { routes } from "./routes";
 
 interface SidebarProps {
   className?: string;
@@ -13,16 +13,17 @@ interface SideBarLinkProps {
   handleClick?: () => void;
 }
 
-function SideBarLink({ to, children, handleClick }: SideBarLinkProps) {
+export function SideBarLink({ to, children, handleClick }: SideBarLinkProps) {
   const location = useLocation();
   const isActive = location.pathname === to;
-  
 
   return (
     <li className="transform transition-opacity ease-in-out duration-[750ms] mt-[1.5em] opacity-100">
       <NavLink
         to={to}
-        className={`block text-[rgba(255,255,255,0.35)] md:text-base text-lg font-bold tracking-widest leading-[1.75] uppercase active:text-white transition-colors ease-in-out duration-200 border-0 outline-0 p-[1.35em_0] relative text-decoration-none before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-full before:h-[0.2em] before:bg-[#3c2c62] hover:before:bg-[rgba(255,255,255,0.55)] ${isActive ? "text-white" : "hover:text-[rgba(255,255,255,0.55)]"}`}
+        className={`block text-[rgba(175, 240, 151, 0.35)] md:text-base text-lg font-bold tracking-widest leading-[1.75] uppercase active:text-white transition-colors ease-in-out duration-200 border-0 outline-0 p-[1.35em_0] relative text-decoration-none before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-full before:h-[0.1em] before:bg-[#3c2c62] hover:before:bg-[rgba(255,255,255,0.55)] ${
+          isActive ? "text-white" : "hover:text-[rgba(255,255,255,0.55)]"
+        }`}
         onClick={() => handleClick && handleClick()} // Close sidebar on click
       >
         {children}
@@ -33,18 +34,26 @@ function SideBarLink({ to, children, handleClick }: SideBarLinkProps) {
 
 export default function Sidebar({ className }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <>
-      <button
-        className="fixed top-4 right-4 z-[10001] p-2 bg-[#312450] text-white rounded-md md:hidden"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <CloseIcon /> : <MenuIcon />}
-      </button>
-      <section
+    <div className="fixed top-0 left-0 h-full z-[2000]">
+      <motion.section
         id="sidebar"
-        className={`fixed p-10 pt-2 bg-[#312450] cursor-default h-screen top-0 left-0 w-full md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000] transition-transform duration-300 ${isOpen ? "translate-y-0" : "-translate-y-full"} md:static md:translate-y-0 ${className}`}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        animate={
+          shouldReduceMotion
+            ? {}
+            : {
+                backgroundColor: isHovering ? "#372a54ff" : "#312450",
+                color: "#00c896",
+              }
+        }
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`flex max-w-full max-h-full h-full px-4 cursor-default  md:w-[280px] overflow-x-hidden overflow-y-auto text-center z-[10000]  md:static md:translate-y-0 ${className}`}
+        style={{ backgroundColor: "#312450" }}
       >
         <div className="inner flex flex-col justify-center min-h-full opacity-100 w-full transition-opacity ease-in-out duration-1000">
           <nav>
@@ -57,7 +66,7 @@ export default function Sidebar({ className }: SidebarProps) {
             </ul>
           </nav>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }

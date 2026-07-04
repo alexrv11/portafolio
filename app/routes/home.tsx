@@ -1,12 +1,12 @@
 import nodemailer from "nodemailer";
 import { useEffect, useState } from "react";
-import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
 import ArrowUpLeftIcon from "~/icons/arrow-up-left";
 import About from "./about";
 import Works from "./works";
 import Services from "./services";
 import Contact from "./contact";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
