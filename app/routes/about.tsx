@@ -41,6 +41,12 @@ const skills = [
     dot: "bg-rose-400",
     items: ["Kafka", "RabbitMQ", "EventBridge", "GitHub Actions", "GitLab CI", "Docker Compose"],
   },
+  {
+    category: "AI Tools",
+    color: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    dot: "bg-emerald-400",
+    items: ["Apify/scraping", "Claude Code", "OpenAI", "Ollama", "NotebookLM", "Tesseract OCR", "AWS Textract"],
+  },
 ];
 
 export default function About() {
