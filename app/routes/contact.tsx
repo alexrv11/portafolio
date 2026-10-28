@@ -4,7 +4,7 @@ import Snackbar from "../components/Snackbar";
 import { useEffect, useState } from "react";
 
 const inputClass =
-  "w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-lg px-4 py-3 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#312450]/30 focus:border-[#312450] transition-all duration-200";
+  "w-full border rounded-[10px] px-4 py-3 text-sm transition-colors duration-200 focus:outline-none";
 
 const contactDetails = [
   {
@@ -63,17 +63,32 @@ export default function Contact() {
   }, [result]);
 
   return (
-    <section className="flex-1 flex items-center justify-center py-16 px-4 bg-gray-50">
-      <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-xl flex flex-col md:flex-row">
-
+    <section
+      className="flex-1 flex items-center justify-center py-16 px-4"
+      style={{ background: "var(--color-surface)" }}
+    >
+      <div
+        className="w-full max-w-4xl rounded-2xl overflow-hidden flex flex-col md:flex-row border"
+        style={{ borderColor: "var(--color-border)", boxShadow: "var(--shadow-md)" }}
+      >
         {/* Left panel — info */}
-        <div className="bg-[#312450] md:w-80 shrink-0 flex flex-col justify-between">
-
+        <div
+          className="md:w-80 shrink-0 flex flex-col justify-between"
+          style={{ background: "var(--color-surface-2)" }}
+        >
           {/* Mobile: compact header row */}
           <div className="flex md:hidden items-center justify-between px-6 py-5">
             <div>
-              <h2 className="text-base font-bold text-white leading-tight">Alex Ventura</h2>
-              <p className="text-white/50 text-xs font-medium tracking-widest uppercase mt-0.5">
+              <h2
+                className="text-base font-bold leading-tight"
+                style={{ color: "var(--color-text)", fontFamily: "var(--font-display)" }}
+              >
+                Alex Ventura
+              </h2>
+              <p
+                className="text-xs font-medium tracking-widest uppercase mt-0.5"
+                style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+              >
                 Senior Fullstack Developer
               </p>
             </div>
@@ -87,7 +102,10 @@ export default function Contact() {
                     target={href!.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="text-white/50 hover:text-[#00c896] transition-colors"
+                    className="transition-colors"
+                    style={{ color: "var(--color-text-muted)" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-brand)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text-muted)"; }}
                   >
                     {icon}
                   </a>
@@ -98,48 +116,80 @@ export default function Contact() {
           {/* Desktop: full detail list */}
           <div className="hidden md:flex flex-col justify-between flex-1 p-10">
             <div>
-              <h2 className="text-2xl font-bold text-white leading-tight">Alex Ventura</h2>
-              <p className="text-white/50 text-sm font-medium tracking-widest uppercase mt-1 mb-8">
+              <h2
+                className="text-2xl font-bold leading-tight"
+                style={{ color: "var(--color-text)", fontFamily: "var(--font-display)" }}
+              >
+                Alex Ventura
+              </h2>
+              <p
+                className="text-sm font-medium tracking-widest uppercase mt-1 mb-8"
+                style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+              >
                 Senior Fullstack Developer
               </p>
               <ul className="space-y-5">
                 {contactDetails.map(({ icon, label, value, href }) => (
                   <li key={label} className="flex items-start gap-3">
-                    <span className="text-white/40 mt-0.5 shrink-0">{icon}</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: "var(--color-text-muted)" }}>
+                      {icon}
+                    </span>
                     <div>
-                      <p className="text-white/40 text-xs uppercase tracking-widest mb-0.5">{label}</p>
+                      <p
+                        className="text-xs uppercase tracking-widest mb-0.5"
+                        style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+                      >
+                        {label}
+                      </p>
                       {href ? (
                         <a
                           href={href}
                           target={href.startsWith("http") ? "_blank" : undefined}
                           rel="noopener noreferrer"
-                          className="text-white text-sm hover:text-[#00c896] transition-colors break-all"
+                          className="text-sm transition-colors break-all"
+                          style={{ color: "var(--color-text)" }}
+                          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-brand-text)"; }}
+                          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text)"; }}
                         >
                           {value}
                         </a>
                       ) : (
-                        <p className="text-white text-sm">{value}</p>
+                        <p className="text-sm" style={{ color: "var(--color-text)" }}>{value}</p>
                       )}
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
-            <p className="text-white/20 text-xs mt-10">Open to remote opportunities worldwide.</p>
+            <p className="text-xs mt-10" style={{ color: "var(--color-text-muted)" }}>
+              Open to remote opportunities worldwide.
+            </p>
           </div>
         </div>
 
         {/* Right panel — form */}
-        <div className="flex-1 bg-white p-10 flex flex-col justify-center">
-          <h3 className="text-2xl font-bold text-[#312450] mb-1">Get in touch</h3>
-          <p className="text-gray-400 text-sm mb-8">
+        <div
+          className="flex-1 p-10 flex flex-col justify-center"
+          style={{ background: "var(--color-surface)" }}
+        >
+          <h3
+            className="text-2xl font-bold mb-1"
+            style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+          >
+            Get in touch
+          </h3>
+          <p className="text-sm mb-8" style={{ color: "var(--color-text-muted)" }}>
             Have a project in mind or want to connect? Send a message.
           </p>
 
           <fetcher.Form method="post" className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="name" className="text-xs font-semibold text-gray-500 uppercase tracking-widest">
+                <label
+                  htmlFor="name"
+                  className="text-xs font-semibold uppercase tracking-widest"
+                  style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+                >
                   Name
                 </label>
                 <input
@@ -149,10 +199,21 @@ export default function Contact() {
                   placeholder="Alex Doe"
                   required
                   className={inputClass}
+                  style={{
+                    background: "var(--color-bg)",
+                    borderColor: "var(--color-border)",
+                    color: "var(--color-text)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-brand)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; }}
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="text-xs font-semibold text-gray-500 uppercase tracking-widest">
+                <label
+                  htmlFor="email"
+                  className="text-xs font-semibold uppercase tracking-widest"
+                  style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+                >
                   Email
                 </label>
                 <input
@@ -162,12 +223,23 @@ export default function Contact() {
                   placeholder="alex@example.com"
                   required
                   className={inputClass}
+                  style={{
+                    background: "var(--color-bg)",
+                    borderColor: "var(--color-border)",
+                    color: "var(--color-text)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-brand)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; }}
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="message" className="text-xs font-semibold text-gray-500 uppercase tracking-widest">
+              <label
+                htmlFor="message"
+                className="text-xs font-semibold uppercase tracking-widest"
+                style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+              >
                 Message
               </label>
               <textarea
@@ -177,15 +249,24 @@ export default function Contact() {
                 placeholder="Tell me about your project..."
                 required
                 className={`${inputClass} resize-none`}
+                style={{
+                  background: "var(--color-bg)",
+                  borderColor: "var(--color-border)",
+                  color: "var(--color-text)",
+                }}
+                onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-brand)"; }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; }}
               />
             </div>
 
             {result?.ok === false && (
-              <p className="text-red-500 text-sm">{result.error}</p>
+              <p className="text-sm" style={{ color: "var(--color-danger)" }}>{result.error}</p>
             )}
 
             <div className="flex items-center justify-between gap-4 pt-1">
-              <p className="text-gray-400 text-xs">I usually reply within 24 hours.</p>
+              <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                I usually reply within 24 hours.
+              </p>
               <Button type="submit" disabled={isSubmitting}>
                 <span>{isSubmitting ? "Sending…" : "Send Message"}</span>
               </Button>

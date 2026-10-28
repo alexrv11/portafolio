@@ -1,8 +1,15 @@
 import React from "react";
 
-export const SkillLabel = ({text}) => {
+export const SkillLabel = ({ text }: { text: string }) => {
   return (
-    <span className="inline-flex m-1 items-center rounded-md px-2 py-1 text-xs font-medium bg-violet-950 text-violet-100 dark:bg-gray-50  dark:text-gray-700 ring-1 ring-inset ring-gray-500/10">
+    <span
+      className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium uppercase tracking-[0.12em]"
+      style={{
+        background: "var(--color-brand-soft)",
+        color: "var(--color-brand-text)",
+        fontFamily: "var(--font-mono)",
+      }}
+    >
       {text}
     </span>
   );

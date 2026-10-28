@@ -64,19 +64,50 @@ const services = [
 export default function Services() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-12">
-      <h2 className="text-3xl font-bold mb-2 text-[#312450]">What I Do</h2>
-      <p className="text-gray-500 mb-10 text-sm">
+      <p
+        className="text-xs font-bold tracking-widest uppercase mb-2"
+        style={{ color: "var(--color-brand-text)", fontFamily: "var(--font-mono)" }}
+      >
+        // What I Do
+      </p>
+      <h2
+        className="text-3xl font-bold mb-2"
+        style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+      >
+        What I Do
+      </h2>
+      <p className="mb-10 text-sm" style={{ color: "var(--color-text-muted)" }}>
         Services I provide across the full software development lifecycle.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {services.map((service) => (
           <div
             key={service.title}
-            className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col gap-3"
+            className="rounded-xl p-6 border flex flex-col gap-3 transition-shadow duration-200"
+            style={{
+              background: "var(--color-surface)",
+              borderColor: "var(--color-border)",
+              boxShadow: "var(--shadow-sm)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--color-brand)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-md)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--color-border)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-sm)";
+            }}
           >
-            <div className="text-[#5e42a6]">{service.icon}</div>
-            <h3 className="text-lg font-bold text-[#312450]">{service.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+            <div style={{ color: "var(--color-brand-graphic)" }}>{service.icon}</div>
+            <h3
+              className="text-lg font-bold"
+              style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+            >
+              {service.title}
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              {service.description}
+            </p>
           </div>
         ))}
       </div>

@@ -1,22 +1,143 @@
 @import "tailwindcss";
 
 @theme {
+  /* Ember color ramp */
+  --color-ember-50:  #FFF4EC;
+  --color-ember-100: #FFE4D3;
+  --color-ember-200: #FFC7A8;
+  --color-ember-300: #FFA67D;
+  --color-ember-400: #FF9466;
+  --color-ember-500: #FF7A45;
+  --color-ember-600: #D9531E;
+  --color-ember-700: #C2410C;
+  --color-ember-800: #7A2A0C;
+  --color-ember-900: #1A1210;
+
+  /* Font families */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
+/* Semantic tokens — reference CSS variables so utilities are theme-aware */
+@theme inline {
+  --color-bg:          var(--color-bg);
+  --color-surface:     var(--color-surface);
+  --color-surface-2:   var(--color-surface-2);
+  --color-border:      var(--color-border);
+  --color-text:        var(--color-text);
+  --color-muted:       var(--color-text-muted);
+  --color-brand:       var(--color-brand);
+  --color-brand-text:  var(--color-brand-text);
+  --color-on-brand:    var(--color-on-brand);
+  --color-brand-soft:  var(--color-brand-soft);
+}
+
+/* ── Dark theme (default) ─────────────────────────────────── */
+:root,
+:root[data-theme="dark"] {
+  --color-bg:            #1A1210;
+  --color-surface:       #241915;
+  --color-surface-2:     #2E211C;
+  --color-border:        #3A2B24;
+
+  --color-text:          #FFF4EC;
+  --color-text-muted:    #A8968A;
+
+  --color-brand:         #FF7A45;
+  --color-brand-hover:   #FF9466;
+  --color-brand-text:    #FF7A45;
+  --color-brand-graphic: #FF7A45;
+  --color-on-brand:      #1A1210;
+  --color-brand-soft:    rgba(255, 122, 69, 0.14);
+
+  --color-success: #3DD68C;
+  --color-warning: #F5B83D;
+  --color-danger:  #FF6369;
+  --color-info:    #5EB1EF;
+
+  --color-focus-ring: #FF9466;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(26, 18, 16, 0.08);
+  --shadow-md: 0 8px 24px rgba(26, 18, 16, 0.12);
+}
+
+/* ── Light theme ──────────────────────────────────────────── */
+:root[data-theme="light"] {
+  --color-bg:            #FFFAF6;
+  --color-surface:       #FFFFFF;
+  --color-surface-2:     #FFF4EC;
+  --color-border:        #EADBD0;
+
+  --color-text:          #1A1210;
+  --color-text-muted:    #6B5A50;
+
+  --color-brand:         #FF7A45;
+  --color-brand-hover:   #F0652E;
+  --color-brand-text:    #C2410C;
+  --color-brand-graphic: #D9531E;
+  --color-on-brand:      #1A1210;
+  --color-brand-soft:    #FFE4D3;
+
+  --color-success: #18794E;
+  --color-warning: #AD5700;
+  --color-danger:  #CE2C31;
+  --color-info:    #0B68CB;
+
+  --color-focus-ring: #C2410C;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-bg:            #FFFAF6;
+    --color-surface:       #FFFFFF;
+    --color-surface-2:     #FFF4EC;
+    --color-border:        #EADBD0;
+    --color-text:          #1A1210;
+    --color-text-muted:    #6B5A50;
+    --color-brand:         #FF7A45;
+    --color-brand-hover:   #F0652E;
+    --color-brand-text:    #C2410C;
+    --color-brand-graphic: #D9531E;
+    --color-on-brand:      #1A1210;
+    --color-brand-soft:    #FFE4D3;
+    --color-success: #18794E;
+    --color-warning: #AD5700;
+    --color-danger:  #CE2C31;
+    --color-info:    #0B68CB;
+    --color-focus-ring: #C2410C;
+  }
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
 html,
 body {
-  @apply bg-white;
-  @apply text-gray-900;
   @apply antialiased;
-  @apply font-sans;
-  @apply text-base;
-
-
   margin: 0;
   max-width: 100%;
   height: 100%;
   min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
 }
 
+::selection {
+  background: var(--color-brand-soft);
+  color: var(--color-text);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

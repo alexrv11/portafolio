@@ -103,13 +103,37 @@ function WorkCard({
     <div className="relative flex gap-6 group">
       {/* Timeline line */}
       <div className="flex flex-col items-center">
-        <div className="w-3 h-3 rounded-full bg-[#312450] mt-1.5 flex-shrink-0 ring-2 ring-[#312450] ring-offset-2" />
-        {!isLast && <div className="w-0.5 bg-[#312450]/20 flex-1 mt-1" />}
+        <div
+          className="w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ring-2 ring-offset-2"
+          style={{
+            background: "var(--color-brand)",
+            ringColor: "var(--color-brand)",
+            ringOffsetColor: "var(--color-bg)",
+          }}
+        />
+        {!isLast && (
+          <div className="w-0.5 flex-1 mt-1" style={{ background: "var(--color-border)" }} />
+        )}
       </div>
 
       {/* Card */}
       <div className="mb-10 flex-1 pb-2">
-        <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+        <div
+          className="rounded-xl p-6 border transition-shadow duration-200"
+          style={{
+            background: "var(--color-surface)",
+            borderColor: "var(--color-border)",
+            boxShadow: "var(--shadow-sm)",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = "var(--color-brand)";
+            (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-md)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.borderColor = "var(--color-border)";
+            (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-sm)";
+          }}
+        >
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <div>
               {url ? (
@@ -117,27 +141,42 @@ function WorkCard({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xl font-bold text-[#312450] hover:text-[#5e42a6] transition-colors"
+                  className="text-xl font-bold transition-colors"
+                  style={{ color: "var(--color-text)", fontFamily: "var(--font-display)" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-brand-text)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-text)"; }}
                 >
                   {company}
                 </a>
               ) : (
-                <h3 className="text-xl font-bold text-[#312450]">{company}</h3>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ color: "var(--color-text)", fontFamily: "var(--font-display)" }}
+                >
+                  {company}
+                </h3>
               )}
-              <p className="text-[#5e42a6] font-semibold text-sm mt-0.5">{role}</p>
+              <p className="font-semibold text-sm mt-0.5" style={{ color: "var(--color-brand-text)" }}>
+                {role}
+              </p>
             </div>
-            <div className="text-right text-sm text-gray-500 flex-shrink-0">
+            <div className="text-right text-sm flex-shrink-0" style={{ color: "var(--color-text-muted)" }}>
               <p className="font-medium">{period}</p>
               <p>{location}</p>
             </div>
           </div>
 
-          <p className="text-xs text-gray-400 italic mb-4">{tech}</p>
+          <p
+            className="text-xs italic mb-4"
+            style={{ color: "var(--color-text-muted)", fontFamily: "var(--font-mono)" }}
+          >
+            {tech}
+          </p>
 
-          <ul className="space-y-1.5 text-sm text-gray-700">
+          <ul className="space-y-1.5 text-sm" style={{ color: "var(--color-text)" }}>
             {(expanded ? highlights : highlights.slice(0, 3)).map((h, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span className="text-[#5e42a6] mt-1 flex-shrink-0">▸</span>
+                <span className="mt-1 flex-shrink-0" style={{ color: "var(--color-brand)" }}>▸</span>
                 <span>{h}</span>
               </li>
             ))}
@@ -146,7 +185,10 @@ function WorkCard({
           {highlights.length > 3 && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="mt-3 text-xs text-[#5e42a6] hover:text-[#312450] font-medium transition-colors"
+              className="mt-3 text-xs font-medium transition-colors"
+              style={{ color: "var(--color-brand-text)" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-brand)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--color-brand-text)"; }}
             >
               {expanded ? "Show less ↑" : `Show ${highlights.length - 3} more ↓`}
             </button>
@@ -156,7 +198,12 @@ function WorkCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs bg-[#312450]/8 text-[#312450] px-2.5 py-1 rounded-full font-medium"
+                className="text-xs px-2.5 py-1 rounded-full font-medium uppercase tracking-[0.12em]"
+                style={{
+                  background: "var(--color-brand-soft)",
+                  color: "var(--color-brand-text)",
+                  fontFamily: "var(--font-mono)",
+                }}
               >
                 {tag}
               </span>
@@ -171,8 +218,21 @@ function WorkCard({
 export default function Works() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-12">
-      <h2 className="text-3xl font-bold mb-2 text-[#312450]">Work Experience</h2>
-      <p className="text-gray-500 mb-10 text-sm">14+ years building production systems across fintech, gaming, and e-commerce.</p>
+      <p
+        className="text-xs font-bold tracking-widest uppercase mb-2"
+        style={{ color: "var(--color-brand-text)", fontFamily: "var(--font-mono)" }}
+      >
+        // Work Experience
+      </p>
+      <h2
+        className="text-3xl font-bold mb-2"
+        style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+      >
+        Work Experience
+      </h2>
+      <p className="mb-10 text-sm" style={{ color: "var(--color-text-muted)" }}>
+        14+ years building production systems across fintech, gaming, and e-commerce.
+      </p>
       <div>
         {worksData.map((work, idx) => (
           <WorkCard

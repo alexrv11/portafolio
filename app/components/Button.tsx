@@ -1,30 +1,52 @@
-import { motion, type HTMLMotionProps } from "framer-motion";
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps extends HTMLMotionProps<"button"> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  className?: string;
+  variant?: "primary" | "secondary";
 }
 
 export default function Button({
   children,
+  variant = "primary",
   className = "",
   ...props
 }: ButtonProps) {
+  if (variant === "secondary") {
+    return (
+      <button
+        className={`inline-flex items-center justify-center px-5 py-3 rounded-[10px] text-sm font-semibold transition-colors duration-200 ${className}`}
+        style={{
+          border: "1px solid var(--color-border)",
+          color: "var(--color-text)",
+          background: "transparent",
+          minHeight: 44,
+        }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--color-surface-2)"; }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <motion.button
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
-      whileHover={{ backgroundColor: "#5e42a6" }}
-      transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
-      className={`group pointer-events-auto relative flex h-fit w-full md:w-auto items-center justify-center overflow-hidden rounded-full bg-[#312450] px-8 py-4 font-bold tracking-wide text-white transition-colors duration-800 text-base hover:text-black ${className}`}
+    <button
+      className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[10px] text-sm font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+      style={{
+        background: "var(--color-brand)",
+        color: "var(--color-on-brand)",
+        minHeight: 44,
+      }}
+      onMouseEnter={(e) => {
+        if (!props.disabled) (e.currentTarget as HTMLElement).style.background = "var(--color-brand-hover)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.background = "var(--color-brand)";
+      }}
       {...props}
     >
-      <span className="absolute inset-0 bg-[#00c896] translate-y-full transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:translate-y-0 group-hover:rounded-none"></span>
-
-      <span className="relative z-10 inline-flex items-center space-x-2">
-        {children}
-      </span>
-    </motion.button>
+      {children}
+    </button>
   );
 }
